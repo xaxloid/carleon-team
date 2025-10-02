@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carleon Team</title>
+    <style>
+        /* Общие стили */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(90deg, #ff8c00, #ff0080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+        }
+
+        /* Основной блок текста */
+        .content {
+            background: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            backdrop-filter: blur(5px);
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        ul {
+            margin: 15px 0 25px 20px;
+            list-style-type: disc;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Кнопки с переливом */
+        .button-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .glow-button {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
+            background-size: 600% 600%;
+            animation: gradientAnimation 8s ease infinite;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .glow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* Капча */
+        .captcha {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        /* Ссылки */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+    </style>
+    <!-- Подключение reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <h1>Carleon Team</h1>
+    <h2>Добро пожаловать на переходник клана CT</h2>
+
+    <div class="content">
+        <p class="highlight">Сейчас мы набираем людей в клан, чтобы вместе играть с достаточным активом, общаться и многое другое.</p>
+        <p class="highlight">У нас есть на данный момент единственный плацдарм — Oxide.</p>
+
+        <p class="highlight">Нам нужны такие игроки, как:</p>
+        <ul>
+            <li>Фармилы — от 4 ур.</li>
+            <li>Пвпвшеры — от 10 ур.</li>
+        </ul>
+
+        <p class="highlight">Что вы обязаны делать в клане:</p>
+        <ul>
+            <li>Активить в чате и игре.</li>
+            <li>Соблюдать правила и дисциплину.</li>
+            <li>Уважать своих сокланов.</li>
+            <li>Помогать клану.</li>
+        </ul>
+
+        <p class="highlight">Если вы захотели вступить в клан: Пишите нам — @KAPATEJlb3CY | @DIZZY_8IRTYALOV</p>
+    </div>
+
+    <div class="captcha">
+        <!-- reCAPTCHA -->
+        <form action="?" method="POST" onsubmit="return validateCaptcha()">
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+            <br/>
+            <button type="submit" class="glow-button">Подтвердить</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <a href="https://t.me/DIZZY_8IRTYALOV" target="_blank" class="glow-button">Обратиться к @DIZZY_8IRTYALOV</a>
+        <a href="https://t.me/KAPATEJlb3CY" target="_blank" class="glow-button">Обратиться к @KAPATEJlb3CY</a>
+    </div>
+
+    <script>
+        function validateCaptcha() {
+            var response = grecaptcha.getResponse();
+            if(response.length === 0) {
+                alert("Пожалуйста, подтвердите, что вы не робот.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
